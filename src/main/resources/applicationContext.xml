@@ -6,35 +6,44 @@
 		http://www.springframework.org/schema/beans
     	http://www.springframework.org/schema/beans/spring-beans.xsd
     	http://www.springframework.org/schema/context
-    	http://www.springframework.org/schema/context/spring-context.xsd
-">
+    	http://www.springframework.org/schema/context/spring-context.xsd">
 
 
-    <bean
-            id = "ClassicalMusicBean"
-            class="com.maximzheleznyak.springcourse.ClassicalMusic">
-
-    </bean>
-
-    <bean
-            id = "RockMusicBean"
-            class="com.maximzheleznyak.springcourse.RockMusic">
-    </bean>
-
-
-    <bean
-            id = "MusicPlayer"
-            class="com.maximzheleznyak.springcourse.MusicPlayer">
-<!--            <constructor-arg ref="RockMusicBean"/>-->
-        <constructor-arg ref ="ClassicalMusicBean"/>
-
-
-
-    </bean>
-
-
-
-
-
+    <context:component-scan base-package="com.maximzheleznyak.springcourse"/>
+<context:property-placeholder location="musicPlayer.properties"/>
 
 </beans>
+<!--<context:property-placeholder location = "classpath:musicPlayer.properties"/>-->
+<!--    <bean-->
+<!--            id = "classicalMusic"-->
+<!--            class="com.maximzheleznyak.springcourse.ClassicalMusic"-->
+<!--            init-method = "doMyInit"-->
+<!--        destroy-method = "doMyDestroy"-->
+<!--    factory-method="getClassicalMusic"-->
+
+
+<!--    >-->
+
+<!--    </bean>-->
+
+<!--    <bean-->
+<!--            id = "rockMusicBean"-->
+<!--            class="com.maximzheleznyak.springcourse.RockMusic">-->
+<!--    </bean>-->
+
+
+<!--    <bean-->
+<!--            id = "MusicPlayer"-->
+<!--            class="com.maximzheleznyak.springcourse.MusicPlayer"-->
+<!--    scope="prototype">-->
+<!--&lt;!&ndash;            <constructor-arg ref="RockMusicBean"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        <constructor-arg ref ="ClassicalMusicBean"/>&ndash;&gt;-->
+<!--            <property name="music" ref="classicalMusic"/>-->
+
+<!--            <property name="name" value="${musicPlayer.name}"/>-->
+<!--            <property name="volume" value="${musicPlayer.volume}"/>-->
+
+
+
+<!--    </bean>-->
+
