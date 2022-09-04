@@ -15,7 +15,7 @@ public class TestSpring {
         String s = scanner.nextLine();
 
 
-
+        System.out.println(s);
 
 
 
